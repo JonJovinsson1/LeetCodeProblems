@@ -1,0 +1,22 @@
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        vector<int> L(127, -1);
+        int X = -1;
+        int M = 0;
+
+        for (int I = 0; I < s.size(); I++) {
+            if (L[s[I]] != -1) {
+                if (L[s[I]] < X) {
+                    L[s[I]] = -1;
+                } else {
+                    X = L[s[I]];
+                }
+            }
+            L[s[I]] = I;
+            M = max(M, I - X);
+        }
+
+        return M;
+    }
+};
