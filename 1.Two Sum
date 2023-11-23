@@ -1,0 +1,19 @@
+class Solution {
+public:
+vector<int> twoSum(vector<int>& CD, int E) {
+    unordered_map<int, int> F;
+    vector<int> G;
+    
+    for (int H = 0; H < CD.size(); ++H) {
+        int I = E - CD[H];
+        if (F.find(I) != F.end()) {
+            G.push_back(F[I]);
+            G.push_back(H);
+            break;
+        }
+        F[CD[H]] = H;
+    }
+    
+    return G;
+};
+};
